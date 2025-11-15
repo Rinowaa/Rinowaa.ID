@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rinowaa | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* CSS Global & Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif; /* Ganti dengan font yang lebih sesuai jika perlu */
+        }
+
+        body {
+            background-color: #1a1a2e; /* Warna latar belakang gelap */
+            color: #ffffff;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header dan Navbar */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 8%;
+            background: #1a1a2e;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 25px;
+            color: #ffffff;
+            font-weight: 700;
+            cursor: default;
+        }
+
+        .navbar a {
+            font-size: 18px;
+            color: #ffffff;
+            margin-left: 35px;
+            transition: 0.3s;
+            padding: 5px 0;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: #00bcd4; /* Warna biru cyan untuk hover/aktif */
+            border-bottom: 2px solid #00bcd4;
+        }
+
+        /* Section Global */
+        section {
+            min-height: 100vh;
+            padding: 100px 8% 50px;
+        }
+        
+        /* Home Section - Hero */
+        .home {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 100px; /* Kompensasi header fixed */
+        }
+
+        .home-content {
+            max-width: 50%;
+        }
+
+        .home-content h4 {
+            font-size: 32px;
+            font-weight: 700;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+
+        .home-content h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+
+        .home-content h3 {
+            font-size: 28px;
+            font-weight: 500;
+            color: #00bcd4;
+        }
+
+        .home-content p {
+            font-size: 16px;
+            margin: 20px 0 30px;
+            max-width: 600px;
+            color: #b0b0b0;
+        }
+
+        .social-media a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: 2px solid #00bcd4;
+            border-radius: 50%;
+            font-size: 20px;
+            color: #00bcd4;
+            margin-right: 15px;
+            transition: 0.3s;
+        }
+
+        .social-media a:hover {
+            background: #00bcd4;
+            color: #1a1a2e;
+            box-shadow: 0 0 10px #00bcd4;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 30px;
+            background: #00bcd4;
+            border-radius: 40px;
+            box-shadow: 0 0 10px #00bcd4;
+            font-size: 16px;
+            color: #1a1a2e;
+            letter-spacing: 1px;
+            font-weight: 600;
+            margin-top: 30px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Styling Gambar dengan Hexagon Glow */
+        .home-img {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .home-img .hexagon {
+            width: 350px;
+            height: 400px;
+            background-color: #333333;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .home-img .hexagon::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg, #00bcd4, #005666);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            z-index: -1;
+            filter: blur(15px);
+            opacity: 0.7;
+        }
+
+        .home-img .hexagon img {
+            width: 95%;
+            height: 95%;
+            object-fit: cover;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            z-index: 1;
+        }
+        
+        /* Konten Section Lain */
+        .heading {
+            text-align: center;
+            font-size: 45px;
+            margin-bottom: 50px;
+            color: #00bcd4;
+        }
+
+        .content-box {
+            background-color: #2a2a4e;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .content-box h2 {
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .content-box p, .content-box ul {
+            font-size: 16px;
+            color: #b0b0b0;
+        }
+
+        .content-box ul {
+            list-style: disc;
+            margin-left: 20px;
+        }
+
+        .contact-links {
+            text-align: center;
+        }
+
+        .contact-links a {
+            display: inline-block;
+            margin: 0 15px;
+            font-size: 50px;
+            color: #00bcd4;
+            transition: 0.3s;
+        }
+        
+        .contact-links a:hover {
+            color: #ffffff;
+            transform: translateY(-5px);
+        }
+
+        /* Portfolio Link CV */
+        .portfolio-cv-link {
+            text-align: center;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <a href="#home" class="logo">Portfolio</a>
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="home" id="home">
+        <div class="home-content">
+            <h4>Hello, It's Me</h4>
+            <h1>Rinowaa</h1>
+            <h3>And I'm a <span style="color: #ffffff;">Web Developer</span></h3>
+            <p>I create websites and various scripts such as HTML, CSS, JavaScript, Python, and various other coding techniques. To get to know me better, please click the link provided..</p>
+
+            <div class="social-media">
+                <a href="https://www.facebook.com/dipgaming.pool" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://x.com/Ryuudl_?t=lPtbkhb69eai_JZBHXcnQw&s=09" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/ryuudl_?igsh=dHo3MWNjYXhweWp1" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+
+            <a href="https://drive.google.com/file/d/1WRcRvFzsG3jobR9bPh6Kw7ARH7hoajdw/view?usp=drivesdk" class="btn" target="_blank">Download CV</a>
+        </div>
+
+        <div class="home-img">
+            <div class="hexagon">
+                <img src="Rinowaa.jpg" alt="Rinowaa" /> 
+                </div>
+        </div>
+    </section>
+    
+    <section class="services" id="services">
+        <h2 class="heading">Our <span>Services</span></h2>
+        <div class="content-box">
+            <h2>Layanan Pemesanan Source Code & Web</h2>
+            <p>Kami menawarkan berbagai layanan pembuatan dan kustomisasi kode serta desain web untuk memenuhi kebutuhan digital Anda. Pesan layanan di bawah ini:</p>
+            <ul>
+                <li>**Pembuatan Berbagai Jenis Source Code:** Source code aplikasi, skrip otomatisasi, atau project kecil lainnya.</li>
+                <li>**Desain dan Pembuatan Web HTML/CSS Sederhana:** Pembuatan landing page, web profil, atau web statis.</li>
+                <li>**Ucapan HTML/Kartu Digital Kustom:** Pembuatan kartu ucapan digital yang interaktif dan unik berbasis HTML.</li>
+                <li>**Kustomisasi dan Modifikasi Kode:** Bantuan untuk mengubah atau memperbaiki kode yang sudah ada.</li>
+            </ul>
+            <p style="margin-top: 20px;">Silakan hubungi kami melalui bagian Kontak untuk konsultasi pemesanan.</p>
+        </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+        <h2 class="heading">My <span>Portfolio</span></h2>
+        <div class="content-box">
+            <h2>Dokumen Portofolio & Riwayat Hidup (CV)</h2>
+            <p>Berikut adalah tautan untuk melihat dokumen Portofolio dan Riwayat Hidup (CV) saya yang berisi rincian proyek dan pengalaman kerja.</p>
+            <div class="portfolio-cv-link">
+                 <p>Klik tombol di bawah ini untuk mengunduh berkas CV secara langsung:</p>
+                <a href="https://drive.google.com/uc?export=download&id=1WRcRvFzsG3jobR9bPh6Kw7ARH7hoajdw" class="btn" target="_blank">Download CV (Langsung)</a>
+            </div>
+            <p style="margin-top: 30px; font-style: italic;">langsung download cv agar tau lebih banyak lagi tentang saya.</p>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2 class="heading">Contact <span>Me</span></h2>
+        <div class="content-box">
+            <h2>Hubungi Saya</h2>
+            <p>Anda dapat terhubung dengan saya melalui platform media sosial di bawah ini. Jangan ragu untuk mengirim pesan.</p>
+            <div class="contact-links" style="margin-top: 40px;">
+                <a href="https://www.instagram.com/ryuudl_?igsh=dHo3MWNjYXhweWp1" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/Ryuudl_?t=lPtbkhb69eai_JZBHXcnQw&s=09" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com/dipgaming.pool" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            <p style="text-align: center; margin-top: 30px; color: #ffffff;">Terima kasih atas kunjungan Anda!</p>
+        </div>
+    </section>
+
+</body>
+</html>
